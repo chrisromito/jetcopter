@@ -1,3 +1,0 @@
-beforeAll(()=> {
-    console.log('FIXME')
-})
