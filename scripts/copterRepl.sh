@@ -6,7 +6,11 @@ cdCopterDir
 export IS_PI=true
 nvm use
 alias nodeRepl='node --experimental-repl-await --experimental-modules'
+alias copterRepl='buildCopter && sudo su --'
 
-function copterRepl() {
-    cdCopterDir && nodeRepl
+function buildCopter() {
+    cdCopterDir
+    nvm use
+    export IS_PI=true
+    npm run build
 }

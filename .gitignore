@@ -8,5 +8,9 @@ node_modules/*
 */node_modules/*
 **/node_modules/**
 **/node_modules/**/*
+copter_v2/node_modules
+copter_v1/node_modules
 **/dist/*
 private
+.env
+greek_cheatsheet.md

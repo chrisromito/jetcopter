@@ -4,8 +4,8 @@
 export DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null 2>&1 && pwd)"
 export APP_DIR="$(dirname "${DIR}")"
 export ENV_FILE="${APP_DIR}/.env"
-export COPTER_DIR="${APP_DIR}/copter"
-export SERVER_DIR="${APP_DIR}/copter"
+export COPTER_DIR="${APP_DIR}/copter_v2"
+export SERVER_DIR="${APP_DIR}/copter_v1"
 
 # CWD helpers
 ######################
@@ -48,7 +48,9 @@ function pushToRobot() {
     rsync -aP --exclude '**/node_modules/*' --exclude '**/dist/*' ${APP_DIR}/ ${ROBOT_CONNECTION}:${REMOTE_ROBOT_PATH}
 }
 
-function buildRobot() {
+
+function pushAndGoToRobot() {
+    source "${DIR}/env.sh"
     pushToRobot
-    ssh $ROBOT_CONNECTION source $REMOTE_ROBOT_PATH/scripts/build.sh
+    ssh $ROBOT_CONNECTION "${REMOTE_ROBOT_PATH}/scripts/copterRepl.sh ; bash"
 }

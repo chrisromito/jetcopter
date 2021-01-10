@@ -1,0 +1,16 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "module": "commonjs",
+        "experimentalDecorators": true,
+        "isolatedModules": false,
+        "noImplicitAny": false
+    },
+    "include": [
+        "./**/*.ts"
+    ],
+    "exclude": [
+        "../node_modules",
+        "../dist"
+    ]
+}
